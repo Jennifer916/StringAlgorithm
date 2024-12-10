@@ -6,6 +6,10 @@ public class StringAlgorithm {
         f = new File("words.txt");
         int twoletter = twoletter();
         System.out.println (twoletter);
+        int longest = longest();
+        System.out.println (longest);
+        int palindromes = palindromes();
+        System.out.println(palindromes);
         s.close();
 
     }
@@ -19,7 +23,7 @@ public class StringAlgorithm {
         }
         return twoletter;
     }
-    public static int twoletter() throws FileNotFoundException {
+    public static int longest() throws FileNotFoundException {
     s = new Scanner(f);
     int [] words = new String;
     int [] final = new String;
@@ -38,6 +42,27 @@ public class StringAlgorithm {
         }
     }
     return final.length;
+}
+public static String reverse(Str) throws FileNotFoundException {
+    int a = str.length();
+    String result = "";
+    for (int i = a ; i<1; i--) {
+        result = str.substring(i-1,i) + result;
+    }
+    return result;
+}
+
+
+public static int palindromes() throws FileNotFoundException {
+    s= new Scanner(f);
+    int count = 0
+    while (s.hasNext()) { 
+        String word = s.hasNext();
+        if (s.reverse(word).equals(word)){
+            count ++ ;
+        }
+    }
+    return count; 
 }
     
 }
