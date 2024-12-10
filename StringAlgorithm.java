@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class StringAlgorithm {
     private static File f;
     private static Scanner s;
@@ -6,8 +10,8 @@ public class StringAlgorithm {
         f = new File("words.txt");
         int twoletter = twoletter();
         System.out.println (twoletter);
-        int longest = longest();
-        System.out.println (longest);
+        int longestword = longestword();
+        System.out.println (longestword);
         int palindromes = palindromes();
         System.out.println(palindromes);
         s.close();
@@ -18,51 +22,46 @@ public class StringAlgorithm {
         s = new Scanner(f);
         int twoletter = 0;
         while (s.hasNext()) {
-            if (s.next().length==2)
+        String word = s.next();
+            if (word.length()==2)
                 twoletter++;
         }
         return twoletter;
     }
-    public static int longest() throws FileNotFoundException {
-    s = new Scanner(f);
-    int [] words = new String;
-    int [] final = new String;
-    int count == 0;
-    while(s.next())
-    {
-        words[s.next()]++;
-    }
-    String greatestword = "";
-    for(int i = 1; i < words.length; i++)
-    {
-        if (words[i].length>count)
-        {
-            great= i;
-            final[words[i]]++;
+    public static int longestword() throws FileNotFoundException {
+        s = new Scanner(f);
+        int count= 1; 
+        int j = 0;
+        while (s.hasNext()) {
+        String word = s.nextLine();
+           if (word.length()>j) {
+            j=word.length();
+           }
         }
-    }
-    return final.length;
-}
-public static String reverse(Str) throws FileNotFoundException {
-    int a = str.length();
-    String result = "";
-    for (int i = a ; i<1; i--) {
-        result = str.substring(i-1,i) + result;
-    }
-    return result;
-}
-
-
-public static int palindromes() throws FileNotFoundException {
-    s= new Scanner(f);
-    int count = 0
-    while (s.hasNext()) { 
-        String word = s.hasNext();
-        if (s.reverse(word).equals(word)){
-            count ++ ;
+        while(s.hasNext()) {
+            String nextword =s.next();
+            if (nextword.length()==j) {
+                count++;
+            }
         }
+        return count;
+        
     }
-    return count; 
-}
+    public static int palindromes() throws FileNotFoundException {
+        s = new Scanner(f);
+        int num= 0; 
+        while (s.hasNext()) {
+            String nextword = s.nextLine();
+            String str="";
+           for (int k =0 ; k < nextword.length();k++) {
+            str= nextword.substring(k,k+1) + str;
+           }
+           if (nextword.equals(str)) {
+            num++;
+           }
+        }
+        return num;
+        
+    }
     
 }
