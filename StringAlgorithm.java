@@ -30,7 +30,7 @@ public class StringAlgorithm {
     }
     public static int longestword() throws FileNotFoundException {
         s = new Scanner(f);
-        int count= 1; 
+        int count= 0; 
         int j = 0;
         while (s.hasNext()) {
         String word = s.nextLine();
@@ -38,12 +38,14 @@ public class StringAlgorithm {
             j=word.length();
            }
         }
-        while(s.hasNext()) {
-            String nextword =s.next();
+        Scanner s2 = new Scanner(f);
+        while(s2.hasNext()) {
+            String nextword =s2.next();
             if (nextword.length()==j) {
                 count++;
             }
         }
+        s2.close();
         return count;
         
     }
